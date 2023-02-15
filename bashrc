@@ -26,9 +26,9 @@ fi
 [ -r /data/data/com.termux/files/usr/share/bash-completion/bash_completion ] && . /data/data/com.termux/files/usr/share/bash-completion/bash_completion
 
 # It will run docker.sh script to start docker daemon
-alias ds="sudo bash ${TERMUX_PREFIX}/opt/docker.sh"
+alias ds="sudo bash ${TERMUX_PREFIX}/usr/opt/docker.sh"
 # It will run network.sh script for setting network for docker
-alias ns="sudo bash ${TERMUX_PREFIX}/opt/network.sh"
+alias ns="sudo bash ${TERMUX_PREFIX}/usr/opt/network.sh"
 # Now you can run docker command without typing sudo
 alias docker="sudo docker"
 # To clear working termux tab
