@@ -15,6 +15,7 @@ termux_step_make_install() {
     install -Dm 777 ${TERMUX_PKG_SRCDIR}/scripts/canbus.sh ${TERMUX_PREFIX}/opt/canbus.sh
     install -Dm 777 ${TERMUX_PKG_SRCDIR}/scripts/build-tini.sh ${TERMUX_PREFIX}/opt/build-tini.sh
     install -Dm 777 ${TERMUX_PKG_SRCDIR}/scripts/find-serial.sh ${TERMUX_PREFIX}/opt/find-serial.sh
+    install -Dm 777 ${TERMUX_PKG_SRCDIR}/scripts/first-run.sh ${TERMUX_PREFIX}/opt/first-run.sh
 
     install -Dm 777 ${TERMUX_PKG_SRCDIR}/bashrc ${TERMUX_PREFIX}/etc/bash.bashrc
 }
