@@ -17,7 +17,7 @@ fi
 
 # It will mount run folder location of docker to official location
 
-sudo mount --bind /data/docker/run/ /var/run/
+#sudo mount --bind /data/docker/run/ /var/run/
 
 # Now gracefully start docker
 # iptables command not required as we have now network access
