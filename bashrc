@@ -31,6 +31,8 @@ alias ds="sudo bash /data/data/com.termux/files/usr/opt/docker.sh"
 alias ns="sudo bash /data/data/com.termux/files/usr/opt/network.sh"
 # Now you can run docker command without typing sudo
 alias docker="sudo docker"
+# Point docker-compose at the right socket
+alias docker-compose="sudo DOCKER_HOST=unix:///data/docker/run/docker.sock docker-compose"
 # To clear working termux tab
 alias cl="clear"
 # To exit from termux app quickly
