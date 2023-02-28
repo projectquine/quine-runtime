@@ -1,0 +1,7 @@
+#!/data/data/com.termux/files/usr/bin/sh
+
+echo "Staring network for dockerd"
+sudo bash /data/data/com.termux/files/usr/opt/network.sh
+
+echo "Starting Dockerd Daemon"
+sudo bash /data/data/com.termux/files/usr/opt/docker.sh
