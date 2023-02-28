@@ -6,3 +6,10 @@ install -Dm 777 ./scripts/build-tini.sh ${PREFIX}/opt/build-tini.sh
 install -Dm 777 ./scripts/find-serial.sh ${PREFIX}/opt/find-serial.sh
 
 install -Dm 777 ./bashrc ${PREFIX}/etc/bash.bashrc
+
+# Install on boot scripts:
+mkdir ~/.termux/boot/
+install -Dm 777 ./scripts/start-docker ~/.termux/boot/start-docker
+install -Dm 777 ./scripts/start-sshd ~/.termux/boot/start-sshd
+
+
