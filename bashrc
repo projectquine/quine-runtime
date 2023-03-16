@@ -26,9 +26,9 @@ fi
 [ -r /data/data/com.termux/files/usr/share/bash-completion/bash_completion ] && . /data/data/com.termux/files/usr/share/bash-completion/bash_completion
 
 # It will run docker.sh script to start docker daemon
-alias ds="sudo bash /data/data/com.termux/files/usr/opt/docker.sh"
+alias ds="sudo bash /data/data/com.termux/files/usr/opt/quine/scripts/docker.sh"
 # It will run network.sh script for setting network for docker
-alias ns="sudo bash /data/data/com.termux/files/usr/opt/network.sh"
+alias ns="sudo bash /data/data/com.termux/files/usr/opt/quine/scripts/network.sh"
 # Now you can run docker command without typing sudo
 alias docker="sudo docker"
 # Point docker-compose at the right socket
