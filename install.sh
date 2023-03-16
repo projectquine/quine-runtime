@@ -30,11 +30,6 @@ install_serialwatcher_service() {
     sv-enable serialwatcher
 }
 
-install_sshd_service() {
-    # the rest is setup by default when openssh is installed
-    sv-enable sshd
-}
-
 install_xorg_service() {
     mkdir $PREFIX/var/service/xorg
     mkdir $PREFIX/var/service/xorg/log
@@ -45,7 +40,11 @@ install_xorg_service() {
 
 install_scripts_to_opt
 install_bash_rc
+
+# Initialize /etc/profile, so that sv-enable works
+. $PREFIX/etc/profile
+sv-enable sshd
+
 install_dockerd_service
 install_serialwatcher_service
-install_sshd_service
 install_xorg_service

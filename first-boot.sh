@@ -18,9 +18,7 @@ if [ "$a" -eq 1 ]; then
         mkdir -p "$HOME"/.termux/boot/                  
         echo '#!/data/data/com.termux/files/usr/bin/sh' > "$HOME"/.termux/boot/start-services
         echo termux-wake-lock >> "$HOME"/.termux/boot/start-services
-        echo '. $PREFIX/etc/profile' >> "$HOME"/.termux/boot/start-services                             # delete this script, prevent re-execution.
-                
-        rm "$PREFIX"/etc/profile.d/boot.sh > /dev/null                                          
+        echo '. $PREFIX/etc/profile' >> "$HOME"/.termux/boot/start-services                                                                 
 fi
 
 # Check if we are connected to the internet for the install
@@ -35,3 +33,8 @@ echo "Internet access is available."
 git clone --depth 1 https://github.com/projectquine/quine-runtime.git $TMPDIR/quine-runtime
 bash $TMPDIR/quine-runtime/install.sh
 
+# delete this script, prevent re-execution.     
+rm "$PREFIX"/etc/profile.d/first-boot.sh > /dev/null 
+
+# Reboot once everything is installed
+sudo /system/bin/reboot
