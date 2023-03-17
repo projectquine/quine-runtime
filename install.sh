@@ -17,13 +17,15 @@ install_scripts_to_opt() {
 }
 
 install_bash_rc() {
+    echo "installing bashrc file"
     install -Dm 777 $DIR/bashrc ${PREFIX}/etc/bash.bashrc
 }
 
 install_packages() {
-    pkg install x11-repo
-    pkg install docker docker-compose xorg-server-xvfb
-    pkg install $DIR/assets/termux-x11-1.02.07-0-all.deb
+    echo "installing pkg dependencies"
+    pkg install -y x11-repo
+    pkg install -y docker docker-compose xorg-server-xvfb
+    pkg install -y $DIR/assets/termux-x11-1.02.07-0-all.deb
 }
 
 install_scripts_to_opt

@@ -63,9 +63,10 @@ done
 echo "Internet access is available."
 
 # Setup default password:
-`yes quine | passwd`
+yes quine | passwd
 
 # Generate SSH key
+echo "generating ssh keys"
 ssh-keygen -A
 
 # Pull and install quine runtime
