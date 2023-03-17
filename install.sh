@@ -10,7 +10,7 @@ install_scripts_to_opt() {
     install -Dm 777 $DIR/scripts/start-docker.sh ${PREFIX}/opt/quine/scripts/start-docker.sh
     install -Dm 777 $DIR/scripts/setup-docker-networking.sh ${PREFIX}/opt/quine/setup-docker-networking.sh
     install -Dm 777 $DIR/scripts/canbus.sh ${PREFIX}/opt/quine/scripts/canbus.sh
-    install -Dm 777 $DIR/scripts/build-tini.sh ${PREFIX}/opt/build-tini.sh
+    install -Dm 777 $DIR/scripts/build-tini.sh ${PREFIX}/opt/quine/scripts/build-tini.sh
     install -Dm 777 $DIR/scripts/watch-tty.sh ${PREFIX}/opt/quine/scripts/watch-tty.sh
     install -Dm 777 $DIR/scripts/start-xorg.sh ${PREFIX}/opt/quine/scripts/start-xorg.sh
     install -Dm 777 $DIR/scripts/start-prind.sh ${PREFIX}/opt/quine/scripts/start-prind.sh
