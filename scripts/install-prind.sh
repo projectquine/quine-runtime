@@ -11,11 +11,11 @@ check_dependencies() {
 }
 
 get_prind_src() {
-  if [ -d ~/prind ]; then
+  if [ -d $PREFIX/opt/prind ]; then
     echo "prind source already exists"
   else
     echo "Directory ~/prind does not exist, cloning..."
-    git clone https://github.com/shaunmulligan/prind.git ~/prind
+    git clone https://github.com/shaunmulligan/prind.git $PREFIX/opt/prind
   fi
 }
 
