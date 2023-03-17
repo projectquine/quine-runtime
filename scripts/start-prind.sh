@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/sh
 
 # Wait for Docker to be up and running
-while ! sudo docker info &> /dev/null ; do
+while ! sudo docker system info &> /dev/null ; do
     sleep 1
 done
 
