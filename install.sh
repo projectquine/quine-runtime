@@ -8,6 +8,7 @@ echo "The script is located in the directory: $DIR"
 install_scripts_to_opt() {
     echo "installing scripts for quineOS to /opt"
     install -Dm 777 $DIR/scripts/start-docker.sh ${PREFIX}/opt/quine/scripts/start-docker.sh
+    install -Dm 777 $DIR/scripts/stop-docker.sh ${PREFIX}/opt/quine/scripts/stop-docker.sh
     install -Dm 777 $DIR/scripts/setup-docker-networking.sh ${PREFIX}/opt/quine/scripts/setup-docker-networking.sh
     install -Dm 777 $DIR/scripts/canbus.sh ${PREFIX}/opt/quine/scripts/canbus.sh
     install -Dm 777 $DIR/scripts/build-tini.sh ${PREFIX}/opt/quine/scripts/build-tini.sh
