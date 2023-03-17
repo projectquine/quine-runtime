@@ -50,6 +50,7 @@ if [ "$a" -eq 1 ]; then
         mkdir -p "$HOME"/.termux/boot/                  
         write_start_sshd
         write_boot_dockerd
+        write_boot_serial_watcher
         write_boot_xorg
         write_boot_quine                                                       
 fi
