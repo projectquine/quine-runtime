@@ -9,11 +9,5 @@ ifeq ($(TERMUX_PKG_SRCDIR),)
 endif
 
 install:
-    echo "installing scripts for quineOS to /opt"
-    install -Dm 777 ${TERMUX_PKG_SRCDIR}/scripts/docker.sh ${TERMUX_PREFIX}/opt/docker.sh
-    install -Dm 777 ${TERMUX_PKG_SRCDIR}/scripts/network.sh ${TERMUX_PREFIX}/opt/network.sh
-    install -Dm 777 ${TERMUX_PKG_SRCDIR}/scripts/canbus.sh ${TERMUX_PREFIX}/opt/canbus.sh
-    install -Dm 777 ${TERMUX_PKG_SRCDIR}/scripts/build-tini.sh ${TERMUX_PREFIX}/opt/build-tini.sh
-    install -Dm 777 ${TERMUX_PKG_SRCDIR}/scripts/find-serial.sh ${TERMUX_PREFIX}/opt/find-serial.sh
-
-    install -Dm 777 ${TERMUX_PKG_SRCDIR}/bashrc ${TERMUX_PREFIX}/etc/bash.bashrc
+    echo "installing first-boot script to /etc/profile.d/"
+     install -Dm 777 ${TERMUX_PKG_SRCDIR}/scripts/first-boot.sh ${TERMUX_PREFIX}/etc/profile.d/first-boot.sh
