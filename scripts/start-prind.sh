@@ -1,10 +1,11 @@
 #!/data/data/com.termux/files/usr/bin/sh
 
 # Wait for Docker to be up and running
-while ! sudo docker system info &> /dev/null ; do
-    sleep 1
+while ! sudo test -f /data/docker/run/docker.pid
+do
+  echo "no docker.pid yet"
+  sleep 1
 done
-
 echo "Docker is up and running"
 
 # Launch prind in detached mode
