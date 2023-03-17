@@ -1,3 +1,5 @@
+#!/data/data/com.termux/files/usr/bin/sh
+
 # Make network availabe for all your container and it will also let them communicate with each-other
 
 # It will get your current getway ip
