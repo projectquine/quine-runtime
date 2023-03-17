@@ -1,4 +1,27 @@
-#!/bin/bash
+#!/data/data/com.termux/files/usr/bin/sh
+
+# Search for ttyACM* or ttyUSB* in /sys/class/tty/
+ports=$(sudo find /sys/class/tty/ -name "ttyACM*" -o -name "ttyUSB*" 2>/dev/null)
+
+if [ -z "$ports" ]; then
+  echo "No ttyACM* or ttyUSB* devices found."
+  exit 1
+fi
+
+# Create a symlink to the first device found
+for port in $ports; do
+  # Check if the port is already linked to /dev/klipper
+  if [ "$(readlink -f "$port")" = "/dev/klipper" ]; then
+    echo "Device already linked to /dev/klipper."
+    exit 0
+  fi
+
+  # Create symlink to /dev/klipper
+  sudo ln -sf "$(readlink -f "$port")" /dev/klipper
+  echo "Linked $(readlink -f "$port") to /dev/klipper."
+  exit 0
+done
+
 
 # Initialize the list of folder names
 prev_folder_names=($(sudo ls -1 /sys/class/tty))
