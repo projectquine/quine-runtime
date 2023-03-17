@@ -14,6 +14,7 @@ install_scripts_to_opt() {
     install -Dm 777 $DIR/scripts/watch-tty.sh ${PREFIX}/opt/quine/scripts/watch-tty.sh
     install -Dm 777 $DIR/scripts/start-xorg.sh ${PREFIX}/opt/quine/scripts/start-xorg.sh
     install -Dm 777 $DIR/scripts/start-prind.sh ${PREFIX}/opt/quine/scripts/start-prind.sh
+    install -Dm 777 $DIR/scripts/stop-prind.sh ${PREFIX}/opt/quine/scripts/stop-prind.sh
 }
 
 install_bash_rc() {

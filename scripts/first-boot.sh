@@ -70,11 +70,16 @@ echo "generating ssh keys"
 ssh-keygen -A
 
 # Pull and install quine runtime
+echo "cloning quine runtime"
 git clone --depth 1 https://github.com/projectquine/quine-runtime.git $TMPDIR/quine-runtime
 bash $TMPDIR/quine-runtime/install.sh
+
+echo "cloning quine prind repo"
+git clone --depth 1 https://github.com/projectquine/prind.git $PREFIX/opt/prind
 
 # delete this script, prevent re-execution.     
 rm "$PREFIX"/etc/profile.d/first-boot.sh > /dev/null 
 
 # Reboot once everything is installed
+echo "Rebooting system to start system"
 sudo /system/bin/reboot
