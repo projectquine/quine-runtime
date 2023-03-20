@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/sh
 
 # Search for ttyACM* or ttyUSB* in /sys/class/tty/
-ports=$(sudo find /sys/class/tty/ -name "ttyACM*" -o -name "ttyUSB*" 2>/dev/null)
+ports=$(sudo find /dev/ -name "ttyACM*" -o -name "ttyUSB*" 2>/dev/null)
 
 if [ -z "$ports" ]; then
   echo "No ttyACM* or ttyUSB* devices found."
