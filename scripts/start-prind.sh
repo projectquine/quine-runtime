@@ -1,10 +1,10 @@
 #!/data/data/com.termux/files/usr/bin/sh
 
 # Wait for Docker to be up and running
-while ! sudo test -f /data/docker/run/docker.pid
+until sudo curl -f -s -o /dev/null -H "Content-Type: application/json" --unix-socket /data/docker/run/docker.sock http://localhost/_ping
 do
-  echo "no docker.pid yet"
-  sleep 1
+  echo "sleeping"
+  sleep 5
 done
 echo "Docker is up and running"
 
