@@ -19,6 +19,7 @@ for port in $ports; do
   # Create symlink to /dev/klipper
   sudo ln -sf "$(readlink -f "$port")" /dev/klipper
   echo "Linked $(readlink -f "$port") to /dev/klipper."
+  sudo chmod 777 /dev/klipper
   exit 0
 done
 
