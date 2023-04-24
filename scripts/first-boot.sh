@@ -10,25 +10,25 @@ write_boot_dockerd() {
     echo '#!/data/data/com.termux/files/usr/bin/sh' > "$HOME"/.termux/boot/boot-dockerd
     echo exec 2>&1 >> "$HOME"/.termux/boot/boot-dockerd
     echo bash $PREFIX/opt/quine/scripts/setup-docker-networking.sh >> "$HOME"/.termux/boot/boot-dockerd
-    echo exec $PREFIX/opt/quine/scripts/start-docker.sh >> "$HOME"/.termux/boot/boot-dockerd
+    echo bash $PREFIX/opt/quine/scripts/start-docker.sh >> "$HOME"/.termux/boot/boot-dockerd
 }
 
 write_boot_xorg() {
-    echo '#!/data/data/com.termux/files/usr/bin/sh' > "$HOME"/.termux/boot/boot-xorg
-    echo exec 2>&1 >> "$HOME"/.termux/boot/boot-xorg
-    echo exec $PREFIX/opt/quine/scripts/start-xorg.sh >> "$HOME"/.termux/boot/boot-xorg
+    echo '#!/data/data/com.termux/files/usr/bin/sh' > "$HOME"/.termux/boot/1-boot-xorg
+    echo exec 2>&1 >> "$HOME"/.termux/boot/1-boot-xorg
+    echo exec $PREFIX/opt/quine/scripts/start-xorg.sh >> "$HOME"/.termux/boot/1-boot-xorg
 }
 
 write_boot_serial_watcher() {
-    echo '#!/data/data/com.termux/files/usr/bin/sh' > "$HOME"/.termux/boot/boot-serial-watcher
-    echo exec 2>&1 >> "$HOME"/.termux/boot/boot-serial-watcher
-    echo exec $PREFIX/opt/quine/scripts/watch-tty.sh >> "$HOME"/.termux/boot/boot-serial-watcher
+    echo '#!/data/data/com.termux/files/usr/bin/sh' > "$HOME"/.termux/boot/2-boot-serial-watcher
+    echo exec 2>&1 >> "$HOME"/.termux/boot/2-boot-serial-watcher
+    echo exec $PREFIX/opt/quine/scripts/watch-tty.sh >> "$HOME"/.termux/boot/2-boot-serial-watcher
 }
 
 write_boot_quine() {
-    echo '#!/data/data/com.termux/files/usr/bin/sh' > "$HOME"/.termux/boot/boot-quine
-    echo exec 2>&1 >> "$HOME"/.termux/boot/boot-quine
-    echo "exec /data/data/com.termux/files/usr/opt/quine/scripts/start-prind.sh 2>&1 | tee -a $PREFIX/var/log/prind.log" >> "$HOME"/.termux/boot/boot-quine
+    echo '#!/data/data/com.termux/files/usr/bin/sh' > "$HOME"/.termux/boot/4-boot-quine
+    echo exec 2>&1 >> "$HOME"/.termux/boot/4-boot-quine
+    echo "exec /data/data/com.termux/files/usr/opt/quine/scripts/start-prind.sh 2>&1 | tee -a $PREFIX/var/log/prind.log" >> "$HOME"/.termux/boot/4-boot-quine
 }
 
 # Create the start-services script in ~/.termux/boot to launch all other services using runit
