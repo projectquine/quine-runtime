@@ -2,7 +2,7 @@
 
 docker_res=$(sudo curl -f -s  "Content-Type: application/json" --unix-socket /data/docker/run/docker.sock http://localhost/_ping)
 echo $docker_res 
-if [ $docker_res == "OK" ]; then
+if [ "$docker_res" = "OK" ]; then
   echo "Found running docker instance"
   # Get the process IDs for all Docker-related processes
   pids=$(sudo pgrep -f docker)
