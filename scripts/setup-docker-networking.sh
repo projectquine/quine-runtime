@@ -3,7 +3,7 @@
 # Make network availabe for all your container and it will also let them communicate with each-other
 
 # It will get your current getway ip
-getway=$(ip route get 8.8.8.8 | grep -oP '(?<=via )[^ ]*')
+getway=$(sudo ip route get 8.8.8.8 | grep -oP '(?<=via )[^ ]*')
 
 #it will add your getway ip to your iptable rules in android
 
