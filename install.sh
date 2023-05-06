@@ -22,6 +22,10 @@ install_fake_os_release() {
     install -Dm 777 $DIR/os-release ${PREFIX}/usr/lib/os-release
 }
 
+install_fake_systemctl() {
+    install -Dm 777 $DIR/scripts/fake_systemctl ${PREFIX}/bin/systemctl
+}
+
 install_bash_rc() {
     echo "installing bashrc file"
     install -Dm 777 $DIR/bashrc ${PREFIX}/etc/bash.bashrc

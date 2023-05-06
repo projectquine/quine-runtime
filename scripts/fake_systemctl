@@ -1,0 +1,60 @@
+#!/bin/bash
+
+fake_systemctl() {
+    case "$1" in
+        reboot)
+            sudo reboot
+            ;;
+        halt)
+            sudo reboot -p
+            ;;
+        restart)
+            if [ "$2" = "klipper" ]; then
+                sudo docker restart prind-klipper-1
+            elif [ "$2" = "klipperscreen" ]; then
+                sudo docker restart prind-klipperscreen-1
+            elif [ "$2" = "moonraker" ]; then
+                sudo docker restart prind-moonraker-1
+            else
+                echo "Unsupported service: $2"
+                exit 1
+            fi
+            ;;
+        stop)
+            if [ "$2" = "klipper" ]; then
+                sudo docker stop prind-klipper-1
+            elif [ "$2" = "klipperscreen" ]; then
+                sudo docker stop prind-klipperscreen-1
+            elif [ "$2" = "moonraker" ]; then
+                sudo docker stop prind-moonraker-1
+            else
+                echo "Unsupported service: $2"
+                exit 1
+            fi
+            ;;
+        status)
+            if [ "$2" = "klipper" ]; then
+                container_status=$(sudo docker inspect --format '{{.State.Status}}' prind-klipper-1)
+                echo "klipper.service - Prind Klipper Service"
+                echo "Status: $container_status"
+            elif [ "$2" = "klipperscreen" ]; then
+                container_status=$(sudo docker inspect --format '{{.State.Status}}' prind-klipperscreen-1)
+                echo "klipperscreen.service - Prind KlipperScreen Service"
+                echo "Status: $container_status"
+            elif [ "$2" = "moonraker" ]; then
+                container_status=$(sudo docker inspect --format '{{.State.Status}}' prind-moonraker-1)
+                echo "moonraker.service - Prind Moonraker Service"
+                echo "Status: $container_status"
+            else
+                echo "Unsupported service: $2"
+                exit 1
+            fi
+            ;;
+        *)
+            echo "Usage: systemctl [reboot|halt|restart klipper|stop klipper|status klipper]"
+            exit 1
+            ;;
+    esac
+}
+
+fake_systemctl "$@"
