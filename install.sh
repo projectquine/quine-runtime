@@ -34,16 +34,30 @@ install_bash_rc() {
 install_packages() {
     echo "installing pkg dependencies"
     pkg install -y x11-repo
-    pkg install -y docker docker-compose xorg-server-xvfb
+    pkg install -y docker docker-compose xorg-server-xvfb jq
     pkg install -y $DIR/assets/termux-x11-1.02.07-0-all.deb
 }
 
 configure_docker_daemon() {
     echo "configuring Docker daemon"
     DAEMON_JSON_PATH="/data/data/com.termux/files/usr/etc/docker/daemon.json"
-    mkdir -p "$(dirname "$DAEMON_JSON_PATH")"
-    echo '{"hosts": ["unix:///var/run/docker.sock", "tcp://127.0.0.1:2375"]}' > $DAEMON_JSON_PATH
+
+    # Read the existing JSON content and decode it
+    existing_content=$(cat $DAEMON_JSON_PATH)
+    json=$(echo "$existing_content" | jq '.')
+
+    # Update the "hosts" key by adding "tcp://127.0.0.1:2375"
+    updated_json=$(echo "$json" | jq '.hosts += ["tcp://127.0.0.1:2375"]')
+
+    # Write the updated JSON content back to the daemon.json file
+    echo "$updated_json" > $DAEMON_JSON_PATH
 }
+
+# Check if the 'jq' command is available, install it if not
+if ! command -v jq >/dev/null; then
+    echo "Installing 'jq' package"
+    pkg install -y jq
+fi
 
 install_scripts_to_opt
 install_bash_rc
