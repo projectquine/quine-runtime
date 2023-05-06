@@ -1,0 +1,13 @@
+NAME="QuineOS"
+VERSION="0.0.1 (Grogu)"
+ID=quineos
+ID_LIKE=linux
+VERSION_ID=0.0.1
+PRETTY_NAME="QuineOS 0.0.1 (Grogu)"
+ANSI_COLOR="1;34"
+CPE_NAME="cpe:/o:quineos:quineos:0.0.1"
+HOME_URL="https://projectquine.github.io/quineOS/"
+DOCUMENTATION_URL="https://projectquine.github.io/quineOS/"
+SUPPORT_URL="https://github.com/projectquine/quineOS/issues"
+BUG_REPORT_URL="https://github.com/projectquine/quineOS/issues"
+LOGO=quineos-logo
