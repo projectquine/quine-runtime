@@ -30,6 +30,14 @@ install_packages() {
     pkg install -y $DIR/assets/termux-x11-1.02.07-0-all.deb
 }
 
+configure_docker_daemon() {
+    echo "configuring Docker daemon"
+    DAEMON_JSON_PATH="/data/data/com.termux/files/usr/etc/docker/daemon.json"
+    mkdir -p "$(dirname "$DAEMON_JSON_PATH")"
+    echo '{"hosts": ["unix:///var/run/docker.sock", "tcp://127.0.0.1:2375"]}' > $DAEMON_JSON_PATH
+}
+
 install_scripts_to_opt
 install_bash_rc
 install_packages
+configure_docker_daemon
