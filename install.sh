@@ -18,6 +18,10 @@ install_scripts_to_opt() {
     install -Dm 777 $DIR/scripts/stop-prind.sh ${PREFIX}/opt/quine/scripts/stop-prind.sh
 }
 
+install_fake_os_release() {
+    install -Dm 777 $DIR/os-release ${PREFIX}/usr/lib/os-release
+}
+
 install_bash_rc() {
     echo "installing bashrc file"
     install -Dm 777 $DIR/bashrc ${PREFIX}/etc/bash.bashrc
@@ -40,4 +44,5 @@ configure_docker_daemon() {
 install_scripts_to_opt
 install_bash_rc
 install_packages
+install_fake_os_release
 configure_docker_daemon
