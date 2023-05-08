@@ -42,15 +42,8 @@ configure_docker_daemon() {
     echo "configuring Docker daemon"
     DAEMON_JSON_PATH="/data/data/com.termux/files/usr/etc/docker/daemon.json"
 
-    # Read the existing JSON content and decode it
-    existing_content=$(cat $DAEMON_JSON_PATH)
-    json=$(echo "$existing_content" | jq '.')
-
     # Update the "hosts" key by adding "tcp://127.0.0.1:2375"
-    updated_json=$(echo "$json" | jq '.hosts += ["tcp://127.0.0.1:2375"]')
-
-    # Write the updated JSON content back to the daemon.json file
-    echo "$updated_json" > $DAEMON_JSON_PATH
+    sed -i 's|\("hosts": \[\)|\1\n        "tcp://127.0.0.1:2375",|' "$DAEMON_JSON_PATH"
 }
 
 # Check if the 'jq' command is available, install it if not
