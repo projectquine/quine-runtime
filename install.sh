@@ -19,7 +19,7 @@ install_scripts_to_opt() {
 }
 
 install_fake_os_release() {
-    install -Dm 777 $DIR/os-release ${PREFIX}/usr/lib/os-release
+    install -Dm 777 $DIR/os-release ${PREFIX}/lib/os-release
 }
 
 install_fake_systemctl() {
@@ -44,6 +44,10 @@ configure_docker_daemon() {
 
     # Update the "hosts" key by adding "tcp://127.0.0.1:2375"
     sed -i 's|\("hosts": \[\)|\1\n        "tcp://127.0.0.1:2375",|' "$DAEMON_JSON_PATH"
+}
+
+install_motd() {
+    install -Dm 777 $DIR/motd.sh ${PREFIX}/etc/motd.sh
 }
 
 # Check if the 'jq' command is available, install it if not
